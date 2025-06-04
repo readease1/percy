@@ -225,26 +225,43 @@
         }
 
         .buy-btn {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            color: #333;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            box-shadow: none !important;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
         }
 
         .buy-btn:hover {
-            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
-            box-shadow: 
-                0 15px 40px rgba(0, 0, 0, 0.2),
-                0 0 0 1px rgba(255, 255, 255, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 1),
-                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+            background: none !important;
+            box-shadow: none !important;
+            transform: translateY(-4px) scale(1.03);
         }
 
-        .pill-icon {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
+        .buy-btn::before {
+            display: none;
+        }
+
+        .pill-button {
+            width: 200px;
+            height: 60px;
+            background-image: url('https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840c183df98b478b3db36a1_pill.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-weight: 600;
+            font-size: 1.3rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.2));
+        }
+
+        .pill-button:hover {
+            filter: drop-shadow(0 15px 40px rgba(0, 0, 0, 0.3));
         }
 
         .btn-icon {
@@ -970,8 +987,9 @@
                 </a>
                 
                 <a href="https://pump.fun" class="btn bottom-btn buy-btn" target="_blank" id="buyBtn">
-                    <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840c183df98b478b3db36a1_pill.png" alt="Pump.fun" class="pill-icon">
-                    buy $percy
+                    <div class="pill-button">
+                        buy $percy
+                    </div>
                 </a>
             </div>
         </div>
