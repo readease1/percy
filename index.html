@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>percy - Coming Soon</title>
+    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840840bdd1b6e1ad2fd78b9_dak.png">
+    <link rel="shortcut icon" type="image/png" href="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840840bdd1b6e1ad2fd78b9_dak.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ff69b4;
+            font-family: 'Fredoka', cursive;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            padding: 20px;
+        }
+
+        .pig-image {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            animation: float 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+
+        .pig-image:hover {
+            transform: scale(1.05);
+        }
+
+        .pig-image:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 3px 3px 0px #333, -1px -1px 0px #333, 1px -1px 0px #333, -1px 1px 0px #333;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .coming-soon {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: white;
+            margin-bottom: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .typing-animation::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .twitter-btn {
+            background: #1DA1F2;
+            color: white;
+        }
+
+        .twitter-btn:hover {
+            background: #0d8bd9;
+        }
+
+        .buy-btn {
+            background: #ff6b35;
+            color: white;
+        }
+
+        .buy-btn:hover {
+            background: #e55a2b;
+        }
+
+        .percify-btn {
+            background: #9b59b6;
+            color: white;
+        }
+
+        .percify-btn:hover {
+            background: #8e44ad;
+        }
+
+        .twitter-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #ff69b4;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: #333;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: #ff69b4;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .close {
+            color: #333;
+            float: right;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: white;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 2px 2px 0px #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .upload-area {
+            border: 3px dashed #333;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .upload-area:hover {
+            border-color: white;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .canvas-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #editCanvas {
+            border: 3px solid #333;
+            border-radius: 15px;
+            max-width: 100%;
+            background: white;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Fredoka', cursive;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .control-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .download-btn {
+            background: #27ae60;
+            color: white;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+        }
+
+        .download-btn:hover {
+            background: #229954;
+        }
+
+        .size-btn {
+            background: #3498db;
+            color: white;
+        }
+
+        .size-btn:hover {
+            background: #2980b9;
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 3rem;
+            }
+            
+            .pig-image {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 200px;
+                justify-content: center;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                padding: 20px;
+                width: 95%;
+            }
+
+            .modal-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div class="container">
+            <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68408296d72b7272f31d7350_duc.png" alt="percy" class="pig-image" id="pigImage">
+            
+            <h1 class="title">percy</h1>
+            
+            <div class="coming-soon" id="typing-text"></div>
+            
+            <div class="buttons">
+                <a href="https://twitter.com" class="btn twitter-btn" target="_blank" id="twitterBtn">
+                    <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6838de5fb56905c169669b27_61w1Q5OxE2L%20(1).png" alt="Twitter" class="twitter-icon">
+                    Twitter
+                </a>
+                
+                <a href="https://pump.fun" class="btn buy-btn" target="_blank" id="buyBtn">
+                    buy $percy
+                </a>
+
+                <button class="btn percify-btn" id="percifyBtn">
+                    🐷 percify
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        percy © 2025 | <a href="mailto:team@percyoink.art">team@percyoink.art</a>
+    </div>
+
+    <!-- Modal -->
+    <div id="percyModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <h2 class="modal-title">percify station</h2>
+            
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-text">Click here or drag & drop your profile picture!</div>
+                <input type="file" id="fileInput" accept="image/*" style="display: none;">
+            </div>
+            
+            <div class="canvas-container">
+                <canvas id="editCanvas" width="400" height="400" style="display: none;"></canvas>
+            </div>
+            
+            <div class="controls" id="controls" style="display: none;">
+                <button class="control-btn size-btn" onclick="resizePercy(0.8)">Smaller 🐷</button>
+                <button class="control-btn size-btn" onclick="resizePercy(1.2)">Bigger 🐷</button>
+                <button class="control-btn download-btn" id="downloadBtn">Download Percified PFP! 🎉</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio element for oink sound -->
+    <audio id="oinkSound" preload="auto">
+        <source src="https://github.com/readease1/dac/raw/main/Quack%20Sound%20Effect.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // Sound effect functionality
+        const oinkSound = document.getElementById('oinkSound');
+        
+        function playOink() {
+            oinkSound.currentTime = 0;
+            oinkSound.play().catch(e => console.log('Audio play failed:', e));
+        }
+
+        // Add click listeners for sound effects
+        document.getElementById('pigImage').addEventListener('click', playOink);
+        document.getElementById('twitterBtn').addEventListener('click', playOink);
+        document.getElementById('buyBtn').addEventListener('click', playOink);
+        document.getElementById('percifyBtn').addEventListener('click', playOink);
+
+        // Typing animation
+        const text = "coming soon...";
+        const typingElement = document.getElementById('typing-text');
+        let index = 0;
+        let isDeleting = false;
+        let typeSpeed = 150;
+
+        function type() {
+            if (!isDeleting && index <= text.length) {
+                typingElement.textContent = text.slice(0, index);
+                typingElement.classList.add('typing-animation');
+                index++;
+                setTimeout(type, typeSpeed);
+            } else if (isDeleting && index >= 0) {
+                typingElement.textContent = text.slice(0, index);
+                index--;
+                setTimeout(type, typeSpeed / 2);
+            } else if (!isDeleting && index > text.length) {
+                setTimeout(() => {
+                    isDeleting = true;
+                    typingElement.classList.remove('typing-animation');
+                    type();
+                }, 2000);
+            } else if (isDeleting && index < 0) {
+                isDeleting = false;
+                setTimeout(type, 500);
+            }
+        }
+
+        // Start typing animation
+        setTimeout(type, 1000);
+
+        // Modal functionality
+        const modal = document.getElementById('percyModal');
+        const percifyBtn = document.getElementById('percifyBtn');
+        const closeModal = document.getElementById('closeModal');
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const canvas = document.getElementById('editCanvas');
+        const ctx = canvas.getContext('2d');
+        const controls = document.getElementById('controls');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        let userImage = null;
+        let percyImage = new Image();
+        let percySize = 100;
+        let percyX = 300;
+        let percyY = 50;
+        let isDragging = false;
+
+        // Load percy overlay image
+        percyImage.crossOrigin = "anonymous";
+        percyImage.src = "https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68408533cfa7a08ca23fce3f_dak1.png";
+
+        percifyBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.style.background = 'rgba(255,255,255,0.3)';
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.style.background = 'rgba(255,255,255,0.1)';
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.style.background = 'rgba(255,255,255,0.1)';
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFile(files[0]);
+            }
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFile(e.target.files[0]);
+            }
+        });
+
+        function handleFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                userImage = new Image();
+                userImage.onload = () => {
+                    setupCanvas();
+                    canvas.style.display = 'block';
+                    controls.style.display = 'flex';
+                };
+                userImage.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function setupCanvas() {
+            // Set canvas size to match the larger dimension while maintaining aspect ratio
+            const maxSize = 400;
+            let canvasWidth, canvasHeight;
+            
+            if (userImage.width > userImage.height) {
+                canvasWidth = maxSize;
+                canvasHeight = (userImage.height / userImage.width) * maxSize;
+            } else {
+                canvasHeight = maxSize;
+                canvasWidth = (userImage.width / userImage.height) * maxSize;
+            }
+            
+            canvas.width = canvasWidth;
+            canvas.height = canvasHeight;
+            
+            redrawCanvas();
+        }
+
+        function redrawCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw user image
+            ctx.drawImage(userImage, 0, 0, canvas.width, canvas.height);
+            
+            // Draw percy overlay
+            ctx.drawImage(percyImage, percyX, percyY, percySize, percySize);
+        }
+
+        function resizePercy(factor) {
+            percySize *= factor;
+            if (percySize < 30) percySize = 30;
+            if (percySize > 200) percySize = 200;
+            redrawCanvas();
+        }
+
+        // Mouse events for dragging percy
+        canvas.addEventListener('mousedown', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            if (x >= percyX && x <= percyX + percySize && y >= percyY && y <= percyY + percySize) {
+                isDragging = true;
+                playOink();
+            }
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const rect = canvas.getBoundingClientRect();
+                percyX = e.clientX - rect.left - percySize / 2;
+                percyY = e.clientY - rect.top - percySize / 2;
+                
+                // Keep percy within canvas bounds
+                percyX = Math.max(0, Math.min(canvas.width - percySize, percyX));
+                percyY = Math.max(0, Math.min(canvas.height - percySize, percyY));
+                
+                redrawCanvas();
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch events for mobile
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            const touch = e.touches[0];
+            const x = touch.clientX - rect.left;
+            const y = touch.clientY - rect.top;
+            
+            if (x >= percyX && x <= percyX + percySize && y >= percyY && y <= percyY + percySize) {
+                isDragging = true;
+                playOink();
+            }
+        });
+
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+            if (isDragging) {
+                const rect = canvas.getBoundingClientRect();
+                const touch = e.touches[0];
+                percyX = touch.clientX - rect.left - percySize / 2;
+                percyY = touch.clientY - rect.top - percySize / 2;
+                
+                percyX = Math.max(0, Math.min(canvas.width - percySize, percyX));
+                percyY = Math.max(0, Math.min(canvas.height - percySize, percyY));
+                
+                redrawCanvas();
+            }
+        });
+
+        canvas.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            playOink();
+            const link = document.createElement('a');
+            link.download = 'percified-pfp.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+    </script>
+</body>
+</html>
