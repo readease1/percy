@@ -552,7 +552,16 @@
             }
 
             .coming-soon-text {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .comic-modal-content {
+                margin: 2% auto;
+                height: 90vh;
+            }
+
+            .comic-image {
+                max-height: 60vh;
             }
         }
     </style>
@@ -634,7 +643,7 @@
                 <h2 class="game-title">🐷 Flappy Pig Game</h2>
                 <span class="close" id="closeGameModal" style="color: white; font-size: 30px; cursor: pointer;">&times;</span>
             </div>
-            <iframe src="https://pigly.com/play/flappy-pig/" class="game-iframe" title="Flappy Pig Game"></iframe>
+            <iframe src="" class="game-iframe" title="Flappy Pig Game"></iframe>
         </div>
     </div>
 
@@ -754,6 +763,9 @@
         });
 
         closeGameModal.addEventListener('click', () => {
+            // Stop the game by clearing the iframe source
+            const gameIframe = document.querySelector('.game-iframe');
+            gameIframe.src = '';
             gameModal.style.display = 'none';
         });
 
@@ -765,8 +777,19 @@
                 comicModal.style.display = 'none';
             }
             if (e.target === gameModal) {
+                // Stop the game by clearing the iframe source
+                const gameIframe = document.querySelector('.game-iframe');
+                gameIframe.src = '';
                 gameModal.style.display = 'none';
             }
+        });
+
+        // Reload iframe when opening game modal
+        playBtn.addEventListener('click', () => {
+            gameModal.style.display = 'block';
+            // Set the iframe source when opening the modal
+            const gameIframe = document.querySelector('.game-iframe');
+            gameIframe.src = 'https://pigly.com/play/flappy-pig/';
         });
 
         uploadArea.addEventListener('click', () => {
