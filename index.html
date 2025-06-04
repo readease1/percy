@@ -522,7 +522,274 @@
             color: #FFD700;
         }
 
+        /* Terminal Chat Styles */
+        .terminal-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 400px;
+            height: 500px;
+            background: linear-gradient(135deg, #2d1b69 0%, #1a0f3e 100%);
+            border-radius: 15px;
+            border: 2px solid #ff69b4;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 105, 180, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            display: none;
+            flex-direction: column;
+            z-index: 1001;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .terminal-header {
+            background: linear-gradient(135deg, #ff69b4 0%, #e91e63 100%);
+            padding: 12px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 13px 13px 0 0;
+            cursor: move;
+        }
+
+        .terminal-title {
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .minimize-btn {
+            background: #ffbd2e;
+        }
+
+        .close-btn {
+            background: #ff5f57;
+        }
+
+        .terminal-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .terminal-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.2);
+            scrollbar-width: thin;
+            scrollbar-color: #ff69b4 transparent;
+        }
+
+        .terminal-messages::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .terminal-messages::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .terminal-messages::-webkit-scrollbar-thumb {
+            background: #ff69b4;
+            border-radius: 3px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.user {
+            text-align: right;
+        }
+
+        .message.percy {
+            text-align: left;
+        }
+
+        .message-bubble {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 18px;
+            max-width: 80%;
+            word-wrap: break-word;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .user .message-bubble {
+            background: linear-gradient(135deg, #ff69b4 0%, #e91e63 100%);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .percy .message-bubble {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            color: #333;
+            border-bottom-left-radius: 5px;
+            border: 1px solid rgba(255, 105, 180, 0.2);
+        }
+
+        .terminal-input-area {
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0 0 13px 13px;
+        }
+
+        .terminal-input-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .terminal-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-family: 'Fredoka', cursive;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .terminal-input:focus {
+            outline: none;
+            border-color: #ff69b4;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(255, 105, 180, 0.2);
+        }
+
+        .terminal-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .terminal-send-btn {
+            padding: 12px 16px;
+            border: none;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff69b4 0%, #e91e63 100%);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .terminal-send-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .terminal-send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 2px;
+        }
+
+        .typing-dot {
+            width: 4px;
+            height: 4px;
+            background: #ff69b4;
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-8px);
+            }
+        }
+
+        .terminal-minimized {
+            width: 200px;
+            height: 50px;
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .terminal-minimized .terminal-messages,
+        .terminal-minimized .terminal-input-area {
+            display: none;
+        }
+
+        .terminal-minimized .terminal-header {
+            border-radius: 23px;
+            padding: 12px 20px;
+        }
+
         @media (max-width: 600px) {
+            .terminal-container {
+                width: 90vw;
+                height: 70vh;
+                bottom: 10px;
+                left: 5vw;
+            }
+
+            .terminal-minimized {
+                width: 150px;
+                left: 10px;
+            }
+        }
             .title {
                 font-size: 3rem;
             }
@@ -653,6 +920,35 @@
         </div>
     </div>
 
+    <!-- Percy Terminal Chat -->
+    <div id="terminalChat" class="terminal-container">
+        <div class="terminal-header" id="terminalHeader">
+            <div class="terminal-title">
+                <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b4dc1ed6a48e9e62f152_percy.png" alt="Percy" style="width: 20px; height: 20px; border-radius: 50%;">
+                Percy Terminal
+            </div>
+            <div class="terminal-controls">
+                <button class="terminal-btn minimize-btn" id="minimizeTerminal"></button>
+                <button class="terminal-btn close-btn" id="closeTerminal"></button>
+            </div>
+        </div>
+        <div class="terminal-messages" id="terminalMessages">
+            <div class="message percy">
+                <div class="message-bubble">
+                    🐷 Oink oink! Hey there! I'm Percy, your friendly pig assistant! What would you like to chat about today?
+                </div>
+            </div>
+        </div>
+        <div class="terminal-input-area">
+            <div class="terminal-input-container">
+                <input type="text" class="terminal-input" id="terminalInput" placeholder="Type your message to Percy..." maxlength="1000">
+                <button class="terminal-send-btn" id="terminalSend">
+                    ▶
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Game Modal -->
     <div id="gameModal" class="modal">
         <div class="game-modal-content">
@@ -695,6 +991,157 @@
         document.getElementById('playBtn').addEventListener('click', playOink);
         document.getElementById('terminalBtn').addEventListener('click', playOink);
         document.getElementById('chroniclesBtn').addEventListener('click', playOink);
+
+        // Terminal Chat Functionality
+        const terminalChat = document.getElementById('terminalChat');
+        const terminalBtn = document.getElementById('terminalBtn');
+        const closeTerminal = document.getElementById('closeTerminal');
+        const minimizeTerminal = document.getElementById('minimizeTerminal');
+        const terminalHeader = document.getElementById('terminalHeader');
+        const terminalMessages = document.getElementById('terminalMessages');
+        const terminalInput = document.getElementById('terminalInput');
+        const terminalSend = document.getElementById('terminalSend');
+        let isMinimized = false;
+
+        // Open terminal
+        terminalBtn.addEventListener('click', () => {
+            terminalChat.style.display = 'flex';
+            terminalInput.focus();
+        });
+
+        // Close terminal
+        closeTerminal.addEventListener('click', () => {
+            terminalChat.style.display = 'none';
+            isMinimized = false;
+            terminalChat.classList.remove('terminal-minimized');
+        });
+
+        // Minimize/maximize terminal
+        minimizeTerminal.addEventListener('click', () => {
+            isMinimized = !isMinimized;
+            if (isMinimized) {
+                terminalChat.classList.add('terminal-minimized');
+            } else {
+                terminalChat.classList.remove('terminal-minimized');
+                terminalInput.focus();
+            }
+        });
+
+        // Click minimized terminal to maximize
+        terminalHeader.addEventListener('click', () => {
+            if (isMinimized) {
+                isMinimized = false;
+                terminalChat.classList.remove('terminal-minimized');
+                terminalInput.focus();
+            }
+        });
+
+        // Send message functions
+        async function sendMessage() {
+            const message = terminalInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            terminalInput.value = '';
+            terminalSend.disabled = true;
+
+            // Show typing indicator
+            showTypingIndicator();
+
+            try {
+                // Call Anthropic API (Note: This is a demo - you'll need to implement server-side API calling)
+                const response = await callPercyAPI(message);
+                hideTypingIndicator();
+                addMessage(response, 'percy');
+            } catch (error) {
+                hideTypingIndicator();
+                addMessage("Oink! Sorry, I'm having trouble connecting right now. Try again in a moment! 🐷", 'percy');
+            }
+
+            terminalSend.disabled = false;
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const bubbleDiv = document.createElement('div');
+            bubbleDiv.className = 'message-bubble';
+            bubbleDiv.textContent = text;
+            
+            messageDiv.appendChild(bubbleDiv);
+            terminalMessages.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            terminalMessages.scrollTop = terminalMessages.scrollHeight;
+            
+            // Play oink sound for Percy messages
+            if (sender === 'percy') {
+                playOink();
+            }
+        }
+
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                Percy is typing
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            `;
+            terminalMessages.appendChild(typingDiv);
+            terminalMessages.scrollTop = terminalMessages.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        // Demo API call function (you'll need to implement this with your backend)
+        async function callPercyAPI(message) {
+            // This is a demo function. In a real implementation, you would:
+            // 1. Send the message to your backend server
+            // 2. Your backend would call the Anthropic API with your API key
+            // 3. Return the response to the frontend
+            
+            // For now, return a demo response
+            await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
+            
+            const percyResponses = [
+                "Oink oink! That's interesting! As a pig, I love rolling in mud and finding truffles! 🐷",
+                "Snort snort! I'm Percy the pig, and I'm here to help! What else would you like to know? 🐷",
+                "Oink! That reminds me of the time I found the biggest truffle in the forest! 🐷✨",
+                "Pig wisdom: Sometimes you just need to roll in the mud to feel better! Oink! 🐷💕",
+                "Snort! As your pig assistant, I think that's absolutely fascinating! Tell me more! 🐷",
+                "Oink oink! Life is better when you're a happy pig like me! 🐷🌟"
+            ];
+            
+            return percyResponses[Math.floor(Math.random() * percyResponses.length)];
+        }
+
+        // Event listeners
+        terminalSend.addEventListener('click', sendMessage);
+        
+        terminalInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Prevent form submission
+        terminalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+            }
+        });
 
         // Remove typing animation code since we removed coming soon
         // Typing animation
