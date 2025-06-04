@@ -1422,25 +1422,29 @@
             typingIndicator.style.display = 'none';
         }
 
-        // API call function - ready for backend integration
+        // API call function - connects to Vercel API
         async function callPercyAPI(message) {
-            // TODO: Replace with actual API call to your backend
-            // Your backend should call the Anthropic API with this message
-            // and return Percy's response
-            
-            // For now, simulate API delay and return demo response
-            await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
-            
-            const percyResponses = [
-                "Oink oink! That's a great question! As a pig, I find that rolling in mud helps me think better. 🐷",
-                "Snort! Interesting perspective! You know, us pigs are actually quite intelligent - we're the 4th smartest animal species! 🐷✨",
-                "Oink! That reminds me of when I was searching for truffles in the forest. Life lessons are everywhere! 🐷🍄",
-                "Pig wisdom says: Sometimes you need to get a little muddy to find the real treasures in life! Oink oink! 🐷💎",
-                "Snort snort! As your pig assistant, I think you're absolutely right! Tell me more about what you're thinking! 🐷",
-                "Oink! You know what makes me happy? Good friends, fresh mud, and interesting conversations like this one! 🐷💕"
-            ];
-            
-            return percyResponses[Math.floor(Math.random() * percyResponses.length)];
+            try {
+                // Replace with your actual Vercel domain
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                return data.response;
+                
+            } catch (error) {
+                console.error('Error calling Percy API:', error);
+                throw error;
+            }
         }
 
         // Event listeners
