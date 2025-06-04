@@ -36,34 +36,59 @@
         }
 
         .nav-btn {
-            padding: 12px 20px;
+            padding: 14px 24px;
             border: none;
-            border-radius: 15px;
+            border-radius: 20px;
             font-family: 'Fredoka', cursive;
             font-size: 0.95rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
             color: #333;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
         }
 
         .nav-btn:hover {
-            transform: translateY(-2px);
-            background: rgba(255, 255, 255, 1);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px) scale(1.02);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 100%);
+            box-shadow: 
+                0 12px 40px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(255, 255, 255, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
         }
 
         .nav-btn:active {
-            transform: translateY(0);
+            transform: translateY(-1px) scale(0.98);
+            transition: all 0.1s ease;
         }
 
         .main-content {
@@ -125,50 +150,91 @@
         .btn {
             padding: 12px 24px;
             border: none;
-            border-radius: 50px;
+            border-radius: 25px;
             font-family: 'Fredoka', cursive;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            background: white;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
             color: #333;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-            background: #f0f0f0;
+            transform: translateY(-4px) scale(1.03);
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 1),
+                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
         }
 
         .bottom-btn {
-            padding: 16px 32px;
-            font-size: 1.2rem;
+            padding: 18px 36px;
+            font-size: 1.3rem;
             gap: 12px;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            border-radius: 30px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
         }
 
         .twitter-btn {
-            background: #1DA1F2;
+            background: linear-gradient(135deg, #1DA1F2 0%, #1991DB 50%, #1780C4 100%);
             color: white;
+            border: 1px solid rgba(29, 161, 242, 0.3);
         }
 
         .twitter-btn:hover {
-            background: #0d8bd9;
+            background: linear-gradient(135deg, #1991DB 0%, #1780C4 50%, #1570AD 100%);
+            box-shadow: 
+                0 15px 40px rgba(29, 161, 242, 0.4),
+                0 0 0 1px rgba(29, 161, 242, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
         }
 
         .buy-btn {
-            background: #ff6b35;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff5722 50%, #e64a19 100%);
             color: white;
+            border: 1px solid rgba(255, 107, 53, 0.3);
         }
 
         .buy-btn:hover {
-            background: #e55a2b;
+            background: linear-gradient(135deg, #ff5722 0%, #e64a19 50%, #d84315 100%);
+            box-shadow: 
+                0 15px 40px rgba(255, 107, 53, 0.4),
+                0 0 0 1px rgba(255, 107, 53, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
         }
 
         .percify-btn {
