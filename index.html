@@ -225,18 +225,26 @@
         }
 
         .buy-btn {
-            background: linear-gradient(135deg, #ff6b35 0%, #ff5722 50%, #e64a19 100%);
-            color: white;
-            border: 1px solid rgba(255, 107, 53, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            color: #333;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
         }
 
         .buy-btn:hover {
-            background: linear-gradient(135deg, #ff5722 0%, #e64a19 50%, #d84315 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
             box-shadow: 
-                0 15px 40px rgba(255, 107, 53, 0.4),
-                0 0 0 1px rgba(255, 107, 53, 0.6),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+                0 15px 40px rgba(0, 0, 0, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 1),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .pill-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
         }
 
         .btn-icon {
@@ -962,6 +970,7 @@
                 </a>
                 
                 <a href="https://pump.fun" class="btn bottom-btn buy-btn" target="_blank" id="buyBtn">
+                    <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840c183df98b478b3db36a1_pill.png" alt="Pump.fun" class="pill-icon">
                     buy $percy
                 </a>
             </div>
