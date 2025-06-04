@@ -147,6 +147,24 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .ca-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            text-shadow: 2px 2px 0px #333, -1px -1px 0px #333, 1px -1px 0px #333, -1px 1px 0px #333;
+            letter-spacing: 1px;
         }
 
         .btn {
@@ -689,9 +707,18 @@
                 align-items: center;
             }
 
+            .buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .btn {
                 width: 200px;
                 justify-content: center;
+            }
+
+            .ca-text {
+                font-size: 1rem;
             }
 
             .modal-content {
@@ -997,14 +1024,18 @@
             <h1 class="title">percy</h1>
             
             <div class="bottom-buttons">
-                <a href="https://twitter.com" class="btn bottom-btn twitter-btn" target="_blank" id="twitterBtn">
-                    <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6838de5fb56905c169669b27_61w1Q5OxE2L%20(1).png" alt="Twitter" class="btn-icon">
-                    Follow Percy
-                </a>
+                <div class="buttons-container">
+                    <a href="https://twitter.com" class="btn bottom-btn twitter-btn" target="_blank" id="twitterBtn">
+                        <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6838de5fb56905c169669b27_61w1Q5OxE2L%20(1).png" alt="Twitter" class="btn-icon">
+                        Follow Percy
+                    </a>
+                    
+                    <a href="https://pump.fun" class="btn bottom-btn buy-btn" target="_blank" id="buyBtn">
+                        <span>buy $percy</span>
+                    </a>
+                </div>
                 
-                <a href="https://pump.fun" class="btn bottom-btn buy-btn" target="_blank" id="buyBtn">
-                    <span>buy $percy</span>
-                </a>
+                <div class="ca-text">CA:TBA</div>
             </div>
         </div>
     </div>
