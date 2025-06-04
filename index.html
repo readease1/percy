@@ -23,6 +23,47 @@
             align-items: center;
             justify-content: center;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 12px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 15px;
+            font-family: 'Fredoka', cursive;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .nav-btn:active {
+            transform: translateY(0);
         }
 
         .main-content {
@@ -66,16 +107,12 @@
             font-weight: 700;
             color: white;
             text-shadow: 3px 3px 0px #333, -1px -1px 0px #333, 1px -1px 0px #333, -1px 1px 0px #333;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             letter-spacing: 2px;
         }
 
         .top-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
+            display: none;
         }
 
         .bottom-buttons {
@@ -305,9 +342,17 @@
                 height: 150px;
             }
             
-            .top-buttons {
+            .top-nav {
+                position: fixed;
+                top: 10px;
+                right: 10px;
                 flex-direction: column;
-                align-items: center;
+                gap: 8px;
+            }
+            
+            .nav-btn {
+                padding: 10px 16px;
+                font-size: 0.85rem;
             }
             
             .bottom-buttons {
@@ -333,29 +378,29 @@
     </style>
 </head>
 <body>
+    <div class="top-nav">
+        <button class="nav-btn" id="playBtn">
+            🎮 play now
+        </button>
+        
+        <button class="nav-btn" id="terminalBtn">
+            💻 percy terminal
+        </button>
+        
+        <button class="nav-btn" id="chroniclesBtn">
+            📚 read percy chronicles
+        </button>
+        
+        <button class="nav-btn" id="percifyBtn">
+            🐷 percify
+        </button>
+    </div>
+
     <div class="main-content">
         <div class="container">
             <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/68408296d72b7272f31d7350_duc.png" alt="percy" class="pig-image" id="pigImage">
             
             <h1 class="title">percy</h1>
-            
-            <div class="top-buttons">
-                <button class="btn" id="playBtn">
-                    🎮 play now
-                </button>
-                
-                <button class="btn" id="terminalBtn">
-                    💻 percy terminal
-                </button>
-                
-                <button class="btn" id="chroniclesBtn">
-                    📚 read percy chronicles
-                </button>
-                
-                <button class="btn" id="percifyBtn">
-                    🐷 percify
-                </button>
-            </div>
             
             <div class="bottom-buttons">
                 <a href="https://twitter.com" class="btn bottom-btn twitter-btn" target="_blank" id="twitterBtn">
