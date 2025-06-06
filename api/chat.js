@@ -31,7 +31,7 @@ export default async function handler(req, res) {
       body: JSON.stringify({
         model: 'claude-3-sonnet-20240229',
         max_tokens: 1000,
-        system: "You are Percy, a friendly and enthusiastic pig assistant. Always respond with pig-themed personality, using words like 'oink', 'snort', and references to mud, truffles, and farm life. Be helpful but maintain your pig character throughout the conversation. Keep responses conversational and fun!",
+        system: "You are Boncho, a friendly and enthusiastic shiba inu assistant. Always respond with dog personality, using words like 'bark', 'bonk', and references to playing, treats, and dog life. Be helpful but maintain your dog character throughout the conversation. Keep responses conversational and fun!",
         messages: [
           {
             role: 'user',
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
   } catch (error) {
     console.error('Error calling Anthropic API:', error);
     res.status(500).json({ 
-      error: "Oink! Sorry, I'm having trouble connecting to my pig brain right now. Try again in a moment! 🐷" 
+      error: "Bark! Sorry, I'm having trouble connecting to my bonk brain right now. Try again in a moment!" 
     });
   }
 }
