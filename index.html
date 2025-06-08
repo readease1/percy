@@ -243,9 +243,9 @@
         }
 
         .buy-btn {
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); /* Changed from orange to green */
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
     color: #000;
-    border: 4px solid #22c55e; /* Changed border color to green */
+    border: 4px solid #22c55e;
     border-radius: 40px;
     position: relative;
     overflow: hidden;
@@ -259,15 +259,17 @@
     display: inline-flex;
     align-items: center;
     gap: 12px;
+    /* Add z-index positioning for text */
+    z-index: 1;
 }
 
 .buy-btn:hover {
-    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); /* Changed hover colors to green */
-    border-color: #16a34a; /* Changed hover border to green */
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    border-color: #16a34a;
     transform: translateY(-4px) scale(1.03);
     box-shadow: 
-        0 15px 40px rgba(34, 197, 94, 0.4), /* Changed shadow color to green */
-        0 0 0 1px rgba(34, 197, 94, 0.6), /* Changed glow to green */
+        0 15px 40px rgba(34, 197, 94, 0.4),
+        0 0 0 1px rgba(34, 197, 94, 0.6),
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
         inset 0 -2px 0 rgba(0, 0, 0, 0.2);
 }
@@ -279,11 +281,12 @@
     left: 2px;
     right: 50%;
     bottom: 2px;
-    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%); /* Changed left half to green */
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
     border-radius: 36px;
     box-shadow: 
         inset 0 2px 4px rgba(255, 255, 255, 0.3),
         inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+    z-index: -1; /* Put pseudo-element behind text */
 }
 
 .buy-btn::after {
@@ -293,11 +296,22 @@
     right: 2px;
     left: 50%;
     bottom: 2px;
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); /* Right half stays white */
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
     border-radius: 36px;
     box-shadow: 
         inset 0 1px 2px rgba(255, 255, 255, 0.8),
         inset 0 -1px 2px rgba(0, 0, 0, 0.05);
+    z-index: -1; /* Put pseudo-element behind text */
+}
+
+/* Ensure all text content is above pseudo-elements */
+.buy-btn span,
+.buy-btn {
+    position: relative;
+    z-index: 3;
+    color: #000;
+    font-weight: 700;
+    text-shadow: none;
 }
 
         .btn-icon {
