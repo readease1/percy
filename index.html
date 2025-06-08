@@ -243,9 +243,9 @@
         }
 
         .buy-btn {
-    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); /* Changed from orange to green */
     color: #000;
-    border: 4px solid #ea580c;
+    border: 4px solid #22c55e; /* Changed border color to green */
     border-radius: 40px;
     position: relative;
     overflow: hidden;
@@ -261,25 +261,25 @@
     gap: 12px;
 }
 
-        .buy-btn:hover {
-    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-    border-color: #f97316;
+.buy-btn:hover {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); /* Changed hover colors to green */
+    border-color: #16a34a; /* Changed hover border to green */
     transform: translateY(-4px) scale(1.03);
     box-shadow: 
-        0 15px 40px rgba(234, 88, 12, 0.4),
-        0 0 0 1px rgba(234, 88, 12, 0.6),
+        0 15px 40px rgba(34, 197, 94, 0.4), /* Changed shadow color to green */
+        0 0 0 1px rgba(34, 197, 94, 0.6), /* Changed glow to green */
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
         inset 0 -2px 0 rgba(0, 0, 0, 0.2);
 }
 
-        .buy-btn::before {
+.buy-btn::before {
     content: '';
     position: absolute;
     top: 2px;
     left: 2px;
     right: 50%;
     bottom: 2px;
-    background: linear-gradient(135deg, #fb923c 0%, #f97316 100%);
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%); /* Changed left half to green */
     border-radius: 36px;
     box-shadow: 
         inset 0 2px 4px rgba(255, 255, 255, 0.3),
@@ -293,19 +293,11 @@
     right: 2px;
     left: 50%;
     bottom: 2px;
-    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%); /* Right half stays white */
     border-radius: 36px;
     box-shadow: 
         inset 0 1px 2px rgba(255, 255, 255, 0.8),
         inset 0 -1px 2px rgba(0, 0, 0, 0.05);
-}
-
-        .buy-btn span {
-    position: relative;
-    z-index: 3;
-    color: #000;
-    font-weight: 700;
-    text-shadow: none;
 }
 
         .btn-icon {
