@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>percy</title>
-    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b61049359aa4dd95f70c_New%20Project%20-%202025-06-04T220929.746.png">
-    <link rel="shortcut icon" type="image/png" href="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b61049359aa4dd95f70c_New%20Project%20-%202025-06-04T220929.746.png">
+    <title>squeaky chan</title>
+    <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6867c8c7db4e03abb6f874ec_ChatGPT_Image_Jul_4__2025__01_25_22_PM-removebg-preview.png">
+    <link rel="shortcut icon" type="image/png" href="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6867c8c7db4e03abb6f874ec_ChatGPT_Image_Jul_4__2025__01_25_22_PM-removebg-preview.png">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,7 +15,9 @@
         }
 
         body {
-            background-color: #ff69b4;
+            background: linear-gradient(135deg, #FF0000 0%, #FFFF00 25%, #FF0000 50%, #FFFF00 75%, #FF0000 100%);
+            background-size: 400% 400%;
+            animation: chineseGradient 8s ease infinite;
             font-family: 'Fredoka', cursive;
             min-height: 100vh;
             display: flex;
@@ -24,6 +26,30 @@
             justify-content: center;
             overflow-x: hidden;
             position: relative;
+        }
+
+        @keyframes chineseGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating lanterns */
+        .lantern {
+            position: absolute;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .lantern:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .lantern:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+        .lantern:nth-child(3) { bottom: 30%; left: 8%; animation-delay: 4s; }
+        .lantern:nth-child(4) { bottom: 15%; right: 15%; animation-delay: 1s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
         }
 
         .top-nav {
@@ -48,12 +74,12 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
-            color: #333;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.95) 0%, rgba(255, 215, 0, 0.85) 100%);
+            color: #8B0000;
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid #FF0000;
             box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.1),
+                0 8px 32px rgba(255, 0, 0, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.8),
                 inset 0 -1px 0 rgba(255, 255, 255, 0.2);
             position: relative;
@@ -77,13 +103,13 @@
 
         .nav-btn:hover {
             transform: translateY(-3px) scale(1.02);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 1) 0%, rgba(255, 215, 0, 0.95) 100%);
             box-shadow: 
-                0 12px 40px rgba(0, 0, 0, 0.15),
-                0 0 0 1px rgba(255, 255, 255, 0.5),
+                0 12px 40px rgba(255, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 0, 0, 0.8),
                 inset 0 1px 0 rgba(255, 255, 255, 0.9),
                 inset 0 -1px 0 rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
+            border-color: #8B0000;
         }
 
         .nav-btn:active {
@@ -102,6 +128,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 10;
         }
 
         .container {
@@ -110,36 +137,59 @@
             padding: 20px;
         }
 
-        .pig-image {
+        .rat-image {
             width: 200px;
             height: 200px;
             margin-bottom: 30px;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
-            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(139,0,0,0.3));
+            animation: bounce 3s ease-in-out infinite;
             cursor: pointer;
             transition: transform 0.1s ease;
+            border-radius: 50%;
+            border: 4px solid #FFD700;
         }
 
-        .pig-image:hover {
+        .rat-image:hover {
             transform: scale(1.05);
         }
 
-        .pig-image:active {
+        .rat-image:active {
             transform: scale(0.95);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0px) rotate(-1deg); }
+            50% { transform: translateY(-15px) rotate(1deg); }
         }
 
         .title {
             font-size: 4rem;
             font-weight: 700;
-            color: white;
-            text-shadow: 3px 3px 0px #333, -1px -1px 0px #333, 1px -1px 0px #333, -1px 1px 0px #333;
+            color: #FFD700;
+            text-shadow: 
+                3px 3px 0px #8B0000, 
+                -1px -1px 0px #8B0000, 
+                1px -1px 0px #8B0000, 
+                -1px 1px 0px #8B0000,
+                0 0 10px #FF0000;
             margin-bottom: 40px;
             letter-spacing: 2px;
+            position: relative;
+        }
+
+        .title::after {
+            content: '鼠';
+            position: absolute;
+            top: -20px;
+            right: -40px;
+            font-size: 2rem;
+            color: #FF0000;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 5px #FF0000, 0 0 10px #FF0000; }
+            to { text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000; }
         }
 
         .bottom-buttons {
@@ -159,11 +209,30 @@
             margin-bottom: 15px;
         }
 
+        .social-credit {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 2px 2px 0px #8B0000;
+            margin-bottom: 15px;
+            padding: 10px 20px;
+            background: rgba(139, 0, 0, 0.8);
+            border-radius: 15px;
+            border: 2px solid #FFD700;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
         .ca-text {
             font-size: 1.1rem;
             font-weight: 600;
-            color: white;
-            text-shadow: 2px 2px 0px #333, -1px -1px 0px #333, 1px -1px 0px #333, -1px 1px 0px #333;
+            color: #FFD700;
+            text-shadow: 2px 2px 0px #8B0000;
             letter-spacing: 1px;
         }
 
@@ -180,13 +249,13 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            color: #333;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #8B0000;
+            border: 2px solid #FF0000;
             box-shadow: 
-                0 8px 25px rgba(0, 0, 0, 0.15),
+                0 8px 25px rgba(255, 0, 0, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.9),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+                inset 0 -1px 0 rgba(139, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -208,12 +277,12 @@
 
         .btn:hover {
             transform: translateY(-4px) scale(1.03);
-            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            background: linear-gradient(135deg, #FFD700 0%, #FFD700 100%);
             box-shadow: 
-                0 15px 35px rgba(0, 0, 0, 0.2),
-                0 0 0 1px rgba(255, 255, 255, 0.6),
+                0 15px 35px rgba(255, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 0, 0, 0.8),
                 inset 0 1px 0 rgba(255, 255, 255, 1),
-                inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+                inset 0 -1px 0 rgba(139, 0, 0, 0.2);
         }
 
         .bottom-btn {
@@ -222,96 +291,95 @@
             gap: 12px;
             border-radius: 30px;
             box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.2),
+                0 10px 30px rgba(255, 0, 0, 0.3),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3),
-                inset 0 -2px 0 rgba(0, 0, 0, 0.1);
+                inset 0 -2px 0 rgba(139, 0, 0, 0.2);
         }
 
         .twitter-btn {
-            background: linear-gradient(135deg, #1DA1F2 0%, #1991DB 50%, #1780C4 100%);
-            color: white;
-            border: 1px solid rgba(29, 161, 242, 0.3);
+            background: linear-gradient(135deg, #FF0000 0%, #8B0000 50%, #FF0000 100%);
+            color: #FFD700;
+            border: 2px solid #FFD700;
         }
 
         .twitter-btn:hover {
-            background: linear-gradient(135deg, #1991DB 0%, #1780C4 50%, #1570AD 100%);
+            background: linear-gradient(135deg, #8B0000 0%, #FF0000 50%, #8B0000 100%);
             box-shadow: 
-                0 15px 40px rgba(29, 161, 242, 0.4),
-                0 0 0 1px rgba(29, 161, 242, 0.6),
+                0 15px 40px rgba(255, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 215, 0, 0.8),
                 inset 0 1px 0 rgba(255, 255, 255, 0.3),
                 inset 0 -2px 0 rgba(0, 0, 0, 0.2);
         }
 
         .buy-btn {
-    background: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%); /* Changed from green to pink/purple */
-    color: white; /* Changed from black to white for better contrast */
-    border: 4px solid #e91e63; /* Changed border color to match */
-    border-radius: 40px;
-    position: relative;
-    overflow: hidden;
-    padding: 18px 36px !important;
-    font-family: 'Fredoka', cursive;
-    font-size: 1.3rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 1;
-}
+            background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%);
+            color: #8B0000;
+            border: 4px solid #FF0000;
+            border-radius: 40px;
+            position: relative;
+            overflow: hidden;
+            padding: 18px 36px !important;
+            font-family: 'Fredoka', cursive;
+            font-size: 1.3rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1;
+        }
 
-.buy-btn:hover {
-    background: linear-gradient(135deg, #c2185b 0%, #7b1fa2 100%); /* Darker pink/purple on hover */
-    border-color: #c2185b; /* Darker border on hover */
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 
-        0 15px 40px rgba(233, 30, 99, 0.4), /* Pink shadow */
-        0 0 0 1px rgba(233, 30, 99, 0.6),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        inset 0 -2px 0 rgba(0, 0, 0, 0.2);
-}
+        .buy-btn:hover {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+            border-color: #8B0000;
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 
+                0 15px 40px rgba(255, 140, 0, 0.4),
+                0 0 0 1px rgba(255, 0, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+        }
 
-.buy-btn::before {
-    content: '';
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    right: 50%;
-    bottom: 2px;
-    background: linear-gradient(135deg, #f06292 0%, #e91e63 100%); /* Light pink gradient */
-    border-radius: 36px;
-    box-shadow: 
-        inset 0 2px 4px rgba(255, 255, 255, 0.3),
-        inset 0 -1px 2px rgba(0, 0, 0, 0.1);
-    z-index: -1;
-}
+        .buy-btn::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            right: 50%;
+            bottom: 2px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            border-radius: 36px;
+            box-shadow: 
+                inset 0 2px 4px rgba(255, 255, 255, 0.3),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.1);
+            z-index: -1;
+        }
 
-.buy-btn::after {
-    content: '';
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    left: 50%;
-    bottom: 2px;
-    background: linear-gradient(135deg, #ce93d8 0%, #ba68c8 100%); /* Light purple gradient */
-    border-radius: 36px;
-    box-shadow: 
-        inset 0 1px 2px rgba(255, 255, 255, 0.8),
-        inset 0 -1px 2px rgba(0, 0, 0, 0.05);
-    z-index: -1;
-}
+        .buy-btn::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            right: 2px;
+            left: 50%;
+            bottom: 2px;
+            background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+            border-radius: 36px;
+            box-shadow: 
+                inset 0 1px 2px rgba(255, 255, 255, 0.8),
+                inset 0 -1px 2px rgba(0, 0, 0, 0.05);
+            z-index: -1;
+        }
 
-/* Ensure text is visible */
-.buy-btn span,
-.buy-btn {
-    position: relative;
-    z-index: 3;
-    color: white; /* White text for better contrast */
-    font-weight: 700;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Subtle text shadow for readability */
-}
+        .buy-btn span,
+        .buy-btn {
+            position: relative;
+            z-index: 3;
+            color: #8B0000;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+        }
 
         .btn-icon {
             width: 20px;
@@ -324,32 +392,33 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: #ff69b4;
+            background: linear-gradient(135deg, #8B0000 0%, #FF0000 100%);
             padding: 10px;
             text-align: center;
             font-size: 0.9rem;
-            color: white;
+            color: #FFD700;
             font-weight: 500;
+            border-top: 2px solid #FFD700;
         }
 
         .footer a {
-            color: white;
+            color: #FFD700;
             text-decoration: none;
         }
 
         .footer a:hover {
-            color: #333;
+            color: #FFA500;
         }
 
-        /* Percy Terminal Styles */
-        .percy-terminal {
+        /* Squeaky Terminal Styles */
+        .squeaky-terminal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: #ff69b4;
+            background: linear-gradient(135deg, #FF0000 0%, #8B0000 100%);
             z-index: 1000;
             font-family: 'Fredoka', cursive;
             flex-direction: column;
@@ -358,22 +427,22 @@
         .terminal-header {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(135deg, #ff69b4 0%, #e91e63 100%);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, #8B0000 0%, #FF0000 100%);
+            border-bottom: 2px solid #FFD700;
             flex-shrink: 0;
         }
 
         .terminal-title {
             font-size: 2.5rem;
             font-weight: 700;
-            color: white;
-            text-shadow: 2px 2px 0px #333;
+            color: #FFD700;
+            text-shadow: 2px 2px 0px #000;
             margin-bottom: 10px;
         }
 
         .terminal-subtitle {
             font-size: 1rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 215, 0, 0.9);
             margin-bottom: 20px;
         }
 
@@ -383,7 +452,7 @@
             right: 20px;
             background: none;
             border: none;
-            color: white;
+            color: #FFD700;
             font-size: 1.8rem;
             cursor: pointer;
             font-family: 'Fredoka', cursive;
@@ -398,7 +467,7 @@
         }
 
         .terminal-close:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 215, 0, 0.2);
             transform: scale(1.1);
         }
 
@@ -422,7 +491,7 @@
         .feature-title {
             font-size: 1rem;
             font-weight: 600;
-            color: white;
+            color: #FFD700;
             margin-bottom: 8px;
         }
 
@@ -432,12 +501,13 @@
 
         .feature-list li {
             font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 215, 0, 0.8);
             margin-bottom: 6px;
             padding: 6px 10px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 215, 0, 0.1);
             border-radius: 12px;
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
         }
 
         .chat-container {
@@ -454,11 +524,11 @@
             flex: 1;
             overflow-y: auto;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 215, 0, 0.1);
             border-radius: 20px;
             margin-bottom: 15px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.3);
             min-height: 200px;
         }
 
@@ -467,17 +537,17 @@
         }
 
         .chat-messages::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 215, 0, 0.1);
             border-radius: 4px;
         }
 
         .chat-messages::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 215, 0, 0.5);
             border-radius: 4px;
         }
 
         .chat-messages::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.5);
+            background: rgba(255, 215, 0, 0.7);
         }
 
         .message {
@@ -500,7 +570,7 @@
             text-align: right;
         }
 
-        .message.percy {
+        .message.squeaky {
             text-align: left;
         }
 
@@ -514,16 +584,18 @@
         }
 
         .user .message-content {
-            background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
-            color: white;
+            background: linear-gradient(135deg, #FF0000 0%, #8B0000 100%);
+            color: #FFD700;
             border-bottom-right-radius: 4px;
+            border: 1px solid #FFD700;
         }
 
-        .percy .message-content {
-            background: white;
-            color: #333;
+        .squeaky .message-content {
+            background: #FFD700;
+            color: #8B0000;
             border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
+            border: 1px solid #FF0000;
         }
 
         .chat-input-container {
@@ -531,19 +603,20 @@
             gap: 12px;
             align-items: center;
             padding: 15px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 215, 0, 0.1);
             border-radius: 20px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.3);
             flex-shrink: 0;
         }
 
         .chat-input {
             flex: 1;
             padding: 12px 18px;
-            border: none;
+            border: 2px solid #FF0000;
             border-radius: 20px;
-            background: white;
+            background: #FFD700;
+            color: #8B0000;
             font-family: 'Fredoka', cursive;
             font-size: 0.95rem;
             outline: none;
@@ -551,15 +624,16 @@
         }
 
         .chat-input:focus {
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+            border-color: #8B0000;
         }
 
         .chat-send {
             padding: 12px 20px;
-            border: none;
+            border: 2px solid #FFD700;
             border-radius: 20px;
-            background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
-            color: white;
+            background: linear-gradient(135deg, #FF0000 0%, #8B0000 100%);
+            color: #FFD700;
             font-family: 'Fredoka', cursive;
             font-weight: 600;
             cursor: pointer;
@@ -569,7 +643,7 @@
 
         .chat-send:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(233, 30, 99, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
         }
 
         .chat-send:disabled {
@@ -587,12 +661,13 @@
         .typing-content {
             display: inline-block;
             padding: 12px 16px;
-            background: white;
+            background: #FFD700;
             border-radius: 18px;
             border-bottom-left-radius: 4px;
-            color: #666;
+            color: #8B0000;
             font-style: italic;
             font-size: 0.9rem;
+            border: 1px solid #FF0000;
         }
 
         .typing-dots {
@@ -604,7 +679,7 @@
         .typing-dot {
             width: 4px;
             height: 4px;
-            background: #ff69b4;
+            background: #FF0000;
             border-radius: 50%;
             animation: typingBounce 1.4s infinite;
         }
@@ -626,6 +701,259 @@
             }
         }
 
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #FF0000 0%, #8B0000 100%);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 3px solid #FFD700;
+        }
+
+        .close {
+            color: #FFD700;
+            float: right;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close:hover {
+            color: #FFA500;
+        }
+
+        .modal-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-shadow: 2px 2px 0px #000;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .upload-area {
+            border: 3px dashed #FFD700;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255,215,0,0.1);
+        }
+
+        .upload-area:hover {
+            border-color: #FFA500;
+            background: rgba(255,215,0,0.2);
+        }
+
+        .upload-text {
+            font-size: 1.2rem;
+            color: #FFD700;
+            font-weight: 600;
+        }
+
+        .canvas-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        #editCanvas {
+            border: 3px solid #FFD700;
+            border-radius: 15px;
+            max-width: 100%;
+            background: white;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Fredoka', cursive;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            border: 2px solid #FFD700;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .download-btn {
+            background: #27ae60;
+            color: white;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+        }
+
+        .download-btn:hover {
+            background: #229954;
+        }
+
+        .size-btn {
+            background: #FFD700;
+            color: #8B0000;
+        }
+
+        .size-btn:hover {
+            background: #FFA500;
+        }
+
+        .mud-btn {
+            background: #FF8C00;
+            color: white;
+        }
+
+        .mud-btn:hover {
+            background: #FF7F50;
+        }
+
+        .mud-btn.active {
+            background: #8B0000;
+            color: #FFD700;
+        }
+
+        /* Game Modal Styles */
+        .game-modal-content {
+            background-color: #1a1a1a;
+            margin: 2% auto;
+            padding: 20px;
+            border-radius: 15px;
+            width: 95%;
+            max-width: 900px;
+            height: 85vh;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            border: 3px solid #FFD700;
+        }
+
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #FFD700;
+        }
+
+        .game-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin: 0;
+        }
+
+        .game-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px;
+            background: white;
+            flex: 1;
+        }
+
+        /* Comic Modal Styles */
+        .comic-modal-content {
+            background-color: #1a1a1a;
+            margin: 1% auto;
+            padding: 15px;
+            border-radius: 15px;
+            width: 95%;
+            max-width: 800px;
+            height: 95vh;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border: 3px solid #FFD700;
+        }
+
+        .comic-image {
+            max-width: 100%;
+            max-height: 70vh;
+            width: auto;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            object-fit: contain;
+        }
+
+        .coming-soon-text {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #FFD700;
+            text-shadow: 
+                0 0 10px #FFD700,
+                0 0 20px #FFD700,
+                0 0 30px #FFD700,
+                2px 2px 0px #000,
+                -2px -2px 0px #000,
+                2px -2px 0px #000,
+                -2px 2px 0px #000;
+            margin: 15px 0;
+            animation: chineseGlow 2s ease-in-out infinite alternate;
+            letter-spacing: 3px;
+        }
+
+        @keyframes chineseGlow {
+            from {
+                text-shadow: 
+                    0 0 10px #FFD700,
+                    0 0 20px #FFD700,
+                    0 0 30px #FFD700,
+                    2px 2px 0px #000,
+                    -2px -2px 0px #000,
+                    2px -2px 0px #000,
+                    -2px 2px 0px #000;
+            }
+            to {
+                text-shadow: 
+                    0 0 15px #FFD700,
+                    0 0 25px #FFD700,
+                    0 0 35px #FFD700,
+                    0 0 45px #FFD700,
+                    2px 2px 0px #000,
+                    -2px -2px 0px #000,
+                    2px -2px 0px #000,
+                    -2px 2px 0px #000;
+            }
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .terminal-title {
                 font-size: 2rem;
@@ -712,9 +1040,13 @@
                 font-size: 3rem;
             }
 
-            .pig-image {
+            .rat-image {
                 width: 150px;
                 height: 150px;
+            }
+
+            .lantern {
+                font-size: 1.5rem;
             }
 
             .bottom-buttons {
@@ -730,6 +1062,10 @@
             .btn {
                 width: 200px;
                 justify-content: center;
+            }
+
+            .social-credit {
+                font-size: 1rem;
             }
 
             .ca-text {
@@ -760,325 +1096,94 @@
             }
         }
 
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background-color: #ff69b4;
-            margin: 5% auto;
-            padding: 30px;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .close {
-            color: #333;
-            float: right;
-            font-size: 35px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-        }
-
-        .close:hover {
-            color: white;
-        }
-
-        .modal-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: white;
-            text-shadow: 2px 2px 0px #333;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .upload-area {
-            border: 3px dashed #333;
-            border-radius: 15px;
-            padding: 40px 20px;
-            text-align: center;
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: rgba(255,255,255,0.1);
-        }
-
-        .upload-area:hover {
-            border-color: white;
-            background: rgba(255,255,255,0.2);
-        }
-
-        .upload-text {
-            font-size: 1.2rem;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .canvas-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        #editCanvas {
-            border: 3px solid #333;
-            border-radius: 15px;
-            max-width: 100%;
-            background: white;
-        }
-
-        .controls {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin: 20px 0;
-            flex-wrap: wrap;
-        }
-
-        .control-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 25px;
-            font-family: 'Fredoka', cursive;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-
-        .control-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        .download-btn {
-            background: #27ae60;
-            color: white;
-            font-size: 1.1rem;
-            padding: 15px 30px;
-        }
-
-        .download-btn:hover {
-            background: #229954;
-        }
-
-        .size-btn {
-            background: #3498db;
-            color: white;
-        }
-
-        .size-btn:hover {
-            background: #2980b9;
-        }
-
-        .mud-btn {
-            background: #8B4513;
-            color: white;
-        }
-
-        .mud-btn:hover {
-            background: #A0522D;
-        }
-
-        .mud-btn.active {
-            background: #654321;
-            color: #FFD700;
-        }
-
-        /* Game Modal Styles */
-        .game-modal-content {
-            background-color: #1a1a1a;
-            margin: 2% auto;
-            padding: 20px;
-            border-radius: 15px;
-            width: 95%;
-            max-width: 900px;
-            height: 85vh;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .game-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #ff69b4;
-        }
-
-        .game-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #ff69b4;
-            margin: 0;
-        }
-
-        .game-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 10px;
-            background: white;
-            flex: 1;
-        }
-
-        /* Comic Modal Styles */
-        .comic-modal-content {
-            background-color: #1a1a1a;
-            margin: 1% auto;
-            padding: 15px;
-            border-radius: 15px;
-            width: 95%;
-            max-width: 800px;
-            height: 95vh;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .comic-image {
-            max-width: 100%;
-            max-height: 70vh;
-            width: auto;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            object-fit: contain;
-        }
-
-        .coming-soon-text {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #ff69b4;
-            text-shadow: 
-                0 0 10px #ff69b4,
-                0 0 20px #ff69b4,
-                0 0 30px #ff69b4,
-                2px 2px 0px #000,
-                -2px -2px 0px #000,
-                2px -2px 0px #000,
-                -2px 2px 0px #000;
-            margin: 15px 0;
-            animation: glow 2s ease-in-out infinite alternate;
-            letter-spacing: 3px;
-        }
-
-        @keyframes glow {
-            from {
-                text-shadow: 
-                    0 0 10px #ff69b4,
-                    0 0 20px #ff69b4,
-                    0 0 30px #ff69b4,
-                    2px 2px 0px #000,
-                    -2px -2px 0px #000,
-                    2px -2px 0px #000,
-                    -2px 2px 0px #000;
-            }
-            to {
-                text-shadow: 
-                    0 0 15px #ff69b4,
-                    0 0 25px #ff69b4,
-                    0 0 35px #ff69b4,
-                    0 0 45px #ff69b4,
-                    2px 2px 0px #000,
-                    -2px -2px 0px #000,
-                    2px -2px 0px #000,
-                    -2px 2px 0px #000;
-            }
+        /* Add fadeOut animation for fireworks */
+        @keyframes fadeOut {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(2); }
         }
     </style>
 </head>
 <body>
+    <!-- Floating Lanterns -->
+    <div class="lantern">🏮</div>
+    <div class="lantern">🧧</div>
+    <div class="lantern">🏮</div>
+    <div class="lantern">🧧</div>
+
     <div class="top-nav">
         <button class="nav-btn" id="playBtn">
             <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b82c4436c6c379f376d1_images%20(9)%20(1).png" alt="Play" class="nav-btn-icon">
-            play flappy pig
+            play flappy rat
         </button>
         
         <button class="nav-btn" id="terminalBtn">
             <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b81f973b10f87c9b8a43_718c191931a83cb194e0e6e992de5ebd%20(1).png" alt="Terminal" class="nav-btn-icon">
-            percy the pig terminal
+            squeaky chan gpt
         </button>
         
         <button class="nav-btn" id="chroniclesBtn">
             <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b826fa67ce4e0524a744_93d0daf03c3bcc954709dbeac219be06-removebg-preview.png" alt="Chronicles" class="nav-btn-icon">
-            read percy chronicles
+            read rat tales
         </button>
         
         <button class="nav-btn" id="percifyBtn">
             <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b98696eefcb44c5e26b4_New%20Project%20-%202025-06-04T222418.043.png" alt="Percify" class="nav-btn-icon">
-            percify
+            rat-ify
         </button>
     </div>
 
     <div class="main-content">
         <div class="container">
-            <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b61049359aa4dd95f70c_New%20Project%20-%202025-06-04T220929.746.png" alt="percy" class="pig-image" id="pigImage">
+            <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6867c8c7db4e03abb6f874ec_ChatGPT_Image_Jul_4__2025__01_25_22_PM-removebg-preview.png" alt="squeaky chan" class="rat-image" id="ratImage">
             
-            <h1 class="title">percy the pig</h1>
+            <h1 class="title">squeaky chan</h1>
             
             <div class="bottom-buttons">
+                <div class="social-credit">
+                    🌟 Social Credit Score: +9999 🌟<br>
+                    <small>Good rat citizen! +100 for buying $squeaky!</small>
+                </div>
+                
                 <div class="buttons-container">
-                    <a href="https://x.com/percyoink" class="btn bottom-btn twitter-btn" target="_blank" id="twitterBtn">
+                    <a href="https://x.com/squeakychan" class="btn bottom-btn twitter-btn" target="_blank" id="twitterBtn">
                         <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6838de5fb56905c169669b27_61w1Q5OxE2L%20(1).png" alt="Twitter" class="btn-icon">
-                        Join Community
+                        Join Rat Army 老鼠军队
                     </a>
                     
                     <a href="https://pump.fun" class="btn bottom-btn buy-btn" target="_blank" id="buyBtn">
-                        <span>buy $percypig</span>
+                        <span>buy $squeaky 买老鼠币</span>
                     </a>
                 </div>
                 
-                <div class="ca-text">CA:</div>
+                <div class="ca-text">合约地址 (Contract Address):</div>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        percify © 2025 | <a href="mailto:team@percyo.ink">team@percyo.ink</a>
+        squeaky chan © 2025 | 中国老鼠 | <a href="mailto:team@squeakychan.com">team@squeakychan.com</a> | 社会信用评分系统已激活
     </div>
 
     <!-- Game Modal -->
     <div id="gameModal" class="modal">
         <div class="game-modal-content">
             <div class="game-header">
-                <h2 class="game-title">🐷 Flappy Pig Game</h2>
-                <span class="close" id="closeGameModal" style="color: white; font-size: 30px; cursor: pointer;">&times;</span>
+                <h2 class="game-title">🐭 Flappy Rat Game - 飞翔老鼠</h2>
+                <span class="close" id="closeGameModal" style="color: #FFD700; font-size: 30px; cursor: pointer;">&times;</span>
             </div>
-            <iframe src="" class="game-iframe" title="Flappy Pig Game"></iframe>
+            <iframe src="" class="game-iframe" title="Flappy Rat Game"></iframe>
         </div>
     </div>
 
-    <!-- Percify Modal -->
+    <!-- Rat-ify Modal -->
     <div id="percifyModal" class="modal">
         <div class="modal-content">
             <span class="close" id="closePercifyModal">&times;</span>
-            <h2 class="modal-title">percify station</h2>
+            <h2 class="modal-title">rat-ify station 老鼠化工厂</h2>
             
             <div class="upload-area" id="uploadArea">
-                <div class="upload-text">Click here or drag & drop your profile picture!</div>
+                <div class="upload-text">上传你的头像! Upload your profile picture for +50 social credit!</div>
                 <input type="file" id="fileInput" accept="image/*" style="display: none;">
             </div>
             
@@ -1087,12 +1192,12 @@
             </div>
             
             <div class="controls" id="controls" style="display: none;">
-                <button class="control-btn size-btn" onclick="resizePercy(0.8)">Smaller Percy</button>
-                <button class="control-btn size-btn" onclick="resizePercy(1.2)">Bigger Percy</button>
-                <button class="control-btn size-btn" onclick="resizeMud(0.8)">Smaller Mud</button>
-                <button class="control-btn size-btn" onclick="resizeMud(1.2)">Bigger Mud</button>
-                <button class="control-btn mud-btn" onclick="toggleMud()">Add Mud Splash</button>
-                <button class="control-btn download-btn" id="downloadBtn">Download Percified PFP! 🎉</button>
+                <button class="control-btn size-btn" onclick="resizeRat(0.8)">Smaller Squeaky 小老鼠</button>
+                <button class="control-btn size-btn" onclick="resizeRat(1.2)">Bigger Squeaky 大老鼠</button>
+                <button class="control-btn size-btn" onclick="resizeNoodles(0.8)">Smaller Noodles 小面条</button>
+                <button class="control-btn size-btn" onclick="resizeNoodles(1.2)">Bigger Noodles 大面条</button>
+                <button class="control-btn mud-btn" onclick="toggleNoodles()">Add Noodles 加面条</button>
+                <button class="control-btn download-btn" id="downloadBtn">Download Rat-ified PFP! 下载老鼠头像! 🎉</button>
             </div>
         </div>
     </div>
@@ -1100,48 +1205,51 @@
     <!-- Comic Modal -->
     <div id="comicModal" class="modal">
         <div class="comic-modal-content">
-            <span class="close" id="closeComicModal" style="color: white; position: absolute; top: 15px; right: 20px; font-size: 30px;">&times;</span>
-            <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b4dc798c95b965e0746d_comic.png" alt="Percy Chronicles Comic" class="comic-image">
-            <div class="coming-soon-text">COMING SOON</div>
+            <span class="close" id="closeComicModal" style="color: #FFD700; position: absolute; top: 15px; right: 20px; font-size: 30px;">&times;</span>
+            <img src="https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b4dc798c95b965e0746d_comic.png" alt="Squeaky Chan Tales" class="comic-image">
+            <div class="coming-soon-text">老鼠传说 RAT TALES 即将推出 COMING SOON</div>
         </div>
     </div>
 
-    <!-- Percy Terminal -->
-    <div id="percyTerminal" class="percy-terminal">
+    <!-- Squeaky Terminal -->
+    <div id="percyTerminal" class="squeaky-terminal">
         <button class="terminal-close" id="closeTerminal">×</button>
         
         <div class="terminal-header">
-            <div class="terminal-title">PercyGPT</div>
-            <div class="terminal-subtitle">Your friendly pig AI assistant</div>
+            <div class="terminal-title">SqueakyGPT 老鼠GPT</div>
+            <div class="terminal-subtitle">Your friendly Chinese rat AI assistant - 你的友好中国老鼠AI助手</div>
             
             <div class="terminal-features">
                 <div class="feature-section">
                     <div class="feature-icon">💡</div>
-                    <div class="feature-title">Examples</div>
+                    <div class="feature-title">Examples 例子</div>
                     <ul class="feature-list">
-                        <li>"Tell me about pig farming"</li>
-                        <li>"What's the best mud for rolling?"</li>
-                        <li>"Explain blockchain like I'm a pig"</li>
+                        <li>"Tell me about cheese 🧀"</li>
+                        <li>"How to increase social credit?"</li>
+                        <li>"Explain crypto like I'm a rat"</li>
+                        <li>"Best noodles in China?"</li>
                     </ul>
                 </div>
                 
                 <div class="feature-section">
                     <div class="feature-icon">⚡</div>
-                    <div class="feature-title">Capabilities</div>
+                    <div class="feature-title">Capabilities 能力</div>
                     <ul class="feature-list">
-                        <li>Remembers conversation context</li>
-                        <li>Provides pig-themed responses</li>
-                        <li>Answers with oink wisdom</li>
+                        <li>Remembers conversation</li>
+                        <li>Rat-themed responses</li>
+                        <li>Social credit monitoring</li>
+                        <li>Chinese culture wisdom</li>
                     </ul>
                 </div>
                 
                 <div class="feature-section">
                     <div class="feature-icon">⚠️</div>
-                    <div class="feature-title">Limitations</div>
+                    <div class="feature-title">Limitations 限制</div>
                     <ul class="feature-list">
-                        <li>May occasionally snort</li>
-                        <li>Obsessed with mud and truffles</li>
-                        <li>Limited knowledge of non-pig topics</li>
+                        <li>May squeak randomly</li>
+                        <li>Obsessed with cheese & noodles</li>
+                        <li>Monitors social credit score</li>
+                        <li>Loves Chairman Mao quotes</li>
                     </ul>
                 </div>
             </div>
@@ -1149,16 +1257,16 @@
 
         <div class="chat-container">
             <div class="chat-messages" id="chatMessages">
-                <div class="message percy">
+                <div class="message squeaky">
                     <div class="message-content">
-                        🐷 Oink oink! Welcome to PercyGPT! I'm your friendly pig assistant. Ask me anything and I'll respond with pig wisdom and plenty of oinks! What would you like to chat about?
+                        🐭 吱吱! Welcome to SqueakyGPT! I'm your friendly Chinese rat assistant. Ask me anything and I'll respond with rat wisdom, social credit updates, and plenty of squeaks! Your current social credit score is +100 for visiting! 你好! What would you like to chat about?
                     </div>
                 </div>
             </div>
 
             <div class="typing-indicator" id="typingIndicator">
                 <div class="typing-content">
-                    Percy is thinking
+                    Squeaky is thinking 老鼠在思考
                     <div class="typing-dots">
                         <div class="typing-dot"></div>
                         <div class="typing-dot"></div>
@@ -1168,387 +1276,582 @@
             </div>
 
             <div class="chat-input-container">
-                <input type="text" class="chat-input" id="chatInput" placeholder="Message PercyGPT..." maxlength="1000">
-                <button class="chat-send" id="chatSend">Send</button>
+                <input type="text" class="chat-input" id="chatInput" placeholder="Message SqueakyGPT... 给老鼠GPT发消息..." maxlength="1000">
+                <button class="chat-send" id="chatSend">Send 发送</button>
             </div>
         </div>
     </div>
 
-    <!-- Audio element for oink sound -->
-    <audio id="oinkSound" preload="auto">
+    <!-- Audio element for squeak sound -->
+    <audio id="squeakSound" preload="auto">
         <source src="https://github.com/readease1/percy/raw/main/oink.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        // Sound effect functionality
-        const oinkSound = document.getElementById('oinkSound');
+
+    // Sound effect functionality
+const squeakSound = document.getElementById('squeakSound');
+
+function playSqueak() {
+    squeakSound.currentTime = 0;
+    squeakSound.play().catch(e => console.log('Audio play failed:', e));
+}
+
+// Add click listeners for sound effects
+document.getElementById('ratImage').addEventListener('click', playSqueak);
+document.getElementById('twitterBtn').addEventListener('click', playSqueak);
+document.getElementById('buyBtn').addEventListener('click', playSqueak);
+document.getElementById('terminalBtn').addEventListener('click', playSqueak);
+document.getElementById('playBtn').addEventListener('click', playSqueak);
+document.getElementById('chroniclesBtn').addEventListener('click', playSqueak);
+document.getElementById('percifyBtn').addEventListener('click', playSqueak);
+
+// Social credit score animation
+let socialCreditScore = 9999;
+setInterval(() => {
+    const socialCreditElement = document.querySelector('.social-credit');
+    if (socialCreditElement && Math.random() > 0.8) {
+        const change = Math.random() > 0.7 ? '+10' : '+5';
+        socialCreditScore += parseInt(change.replace('+', ''));
         
-        function playOink() {
-            oinkSound.currentTime = 0;
-            oinkSound.play().catch(e => console.log('Audio play failed:', e));
-        }
-
-        // Add click listeners for sound effects
-        document.getElementById('pigImage').addEventListener('click', playOink);
-        document.getElementById('twitterBtn').addEventListener('click', playOink);
-        document.getElementById('buyBtn').addEventListener('click', playOink);
-        document.getElementById('terminalBtn').addEventListener('click', playOink);
-        document.getElementById('playBtn').addEventListener('click', playOink);
-        document.getElementById('chroniclesBtn').addEventListener('click', playOink);
-        document.getElementById('percifyBtn').addEventListener('click', playOink);
-
-        // Modal functionality
-        const gameModal = document.getElementById('gameModal');
-        const percifyModal = document.getElementById('percifyModal');
-        const comicModal = document.getElementById('comicModal');
-        const playBtn = document.getElementById('playBtn');
-        const percifyBtn = document.getElementById('percifyBtn');
-        const chroniclesBtn = document.getElementById('chroniclesBtn');
-        const closeGameModal = document.getElementById('closeGameModal');
-        const closePercifyModal = document.getElementById('closePercifyModal');
-        const closeComicModal = document.getElementById('closeComicModal');
-
-        // Open modals
-        playBtn.addEventListener('click', () => {
-            gameModal.style.display = 'block';
-            const gameIframe = document.querySelector('.game-iframe');
-            gameIframe.src = 'https://pigly.com/play/flappy-pig/';
-        });
-
-        percifyBtn.addEventListener('click', () => {
-            percifyModal.style.display = 'block';
-        });
-
-        chroniclesBtn.addEventListener('click', () => {
-            comicModal.style.display = 'block';
-        });
-
-        // Close modals
-        closeGameModal.addEventListener('click', () => {
-            const gameIframe = document.querySelector('.game-iframe');
-            gameIframe.src = '';
-            gameModal.style.display = 'none';
-        });
-
-        closePercifyModal.addEventListener('click', () => {
-            percifyModal.style.display = 'none';
-        });
-
-        closeComicModal.addEventListener('click', () => {
-            comicModal.style.display = 'none';
-        });
-
-        // Close modals when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === gameModal) {
-                const gameIframe = document.querySelector('.game-iframe');
-                gameIframe.src = '';
-                gameModal.style.display = 'none';
-            }
-            if (e.target === percifyModal) {
-                percifyModal.style.display = 'none';
-            }
-            if (e.target === comicModal) {
-                comicModal.style.display = 'none';
-            }
-        });
-
-        // Percify editor functionality
-        const uploadArea = document.getElementById('uploadArea');
-        const fileInput = document.getElementById('fileInput');
-        const canvas = document.getElementById('editCanvas');
-        const ctx = canvas.getContext('2d');
-        const controls = document.getElementById('controls');
-        const downloadBtn = document.getElementById('downloadBtn');
-
-        let userImage = null;
-        let percyImage = new Image();
-        let mudImage = new Image();
-        let percySize = 100;
-        let percyX = 300;
-        let percyY = 50;
-        let mudSize = 120;
-        let mudX = 50;
-        let mudY = 250;
-        let isDragging = false;
-        let dragTarget = null;
-        let showMud = false;
-
-        // Load images
-        percyImage.crossOrigin = "anonymous";
-        percyImage.src = "https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840b61049359aa4dd95f70c_New%20Project%20-%202025-06-04T220929.746.png";
+        const reasons = [
+            'Good rat behavior! 良好行为!',
+            'Bought $squeaky! 购买了老鼠币!',
+            'Shared with friends! 与朋友分享!',
+            'Used chopsticks correctly! 正确使用筷子!',
+            'Praised Chairman Mao! 赞美毛主席!',
+            'Ate noodles properly! 正确吃面条!',
+            'Helped elderly cross street! 帮助老人过马路!',
+            'Recycled waste properly! 正确回收垃圾!',
+            'Studied Chinese culture! 学习中国文化!',
+            'Respected the Party! 尊重党!'
+        ];
         
-        mudImage.crossOrigin = "anonymous";
-        mudImage.src = "https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6840bb2377c9f053d7d92532_mud.png";
+        const randomReason = reasons[Math.floor(Math.random() * reasons.length)];
+        socialCreditElement.innerHTML = `🌟 Social Credit Score: +${socialCreditScore} 🌟<br><small>${randomReason} ${change} points!</small>`;
+    }
+}, 10000);
 
-        // Upload functionality
-        uploadArea.addEventListener('click', () => {
-            fileInput.click();
-        });
+// Modal functionality
+const gameModal = document.getElementById('gameModal');
+const percifyModal = document.getElementById('percifyModal');
+const comicModal = document.getElementById('comicModal');
+const playBtn = document.getElementById('playBtn');
+const percifyBtn = document.getElementById('percifyBtn');
+const chroniclesBtn = document.getElementById('chroniclesBtn');
+const closeGameModal = document.getElementById('closeGameModal');
+const closePercifyModal = document.getElementById('closePercifyModal');
+const closeComicModal = document.getElementById('closeComicModal');
 
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.style.background = 'rgba(255,255,255,0.3)';
-        });
+// Open modals
+playBtn.addEventListener('click', () => {
+    gameModal.style.display = 'block';
+    const gameIframe = document.querySelector('.game-iframe');
+    gameIframe.src = 'https://pigly.com/play/flappy-pig/';
+});
 
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.style.background = 'rgba(255,255,255,0.1)';
-        });
+percifyBtn.addEventListener('click', () => {
+    percifyModal.style.display = 'block';
+});
 
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.style.background = 'rgba(255,255,255,0.1)';
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                handleFile(files[0]);
-            }
-        });
+chroniclesBtn.addEventListener('click', () => {
+    comicModal.style.display = 'block';
+});
 
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                handleFile(e.target.files[0]);
-            }
-        });
+// Close modals
+closeGameModal.addEventListener('click', () => {
+    const gameIframe = document.querySelector('.game-iframe');
+    gameIframe.src = '';
+    gameModal.style.display = 'none';
+});
 
-        function handleFile(file) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                userImage = new Image();
-                userImage.onload = () => {
-                    setupCanvas();
-                    canvas.style.display = 'block';
-                    controls.style.display = 'flex';
-                };
-                userImage.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        }
+closePercifyModal.addEventListener('click', () => {
+    percifyModal.style.display = 'none';
+});
 
-        function setupCanvas() {
-            const maxSize = 400;
-            let canvasWidth, canvasHeight;
-            
-            if (userImage.width > userImage.height) {
-                canvasWidth = maxSize;
-                canvasHeight = (userImage.height / userImage.width) * maxSize;
-            } else {
-                canvasHeight = maxSize;
-                canvasWidth = (userImage.width / userImage.height) * maxSize;
-            }
-            
-            canvas.width = canvasWidth;
-            canvas.height = canvasHeight;
-            
-            redrawCanvas();
-        }
+closeComicModal.addEventListener('click', () => {
+    comicModal.style.display = 'none';
+});
 
-        function redrawCanvas() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.drawImage(userImage, 0, 0, canvas.width, canvas.height);
-            
-            if (showMud) {
-                ctx.drawImage(mudImage, mudX, mudY, mudSize, mudSize);
-            }
-            
-            ctx.drawImage(percyImage, percyX, percyY, percySize, percySize);
-        }
+// Close modals when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target === gameModal) {
+        const gameIframe = document.querySelector('.game-iframe');
+        gameIframe.src = '';
+        gameModal.style.display = 'none';
+    }
+    if (e.target === percifyModal) {
+        percifyModal.style.display = 'none';
+    }
+    if (e.target === comicModal) {
+        comicModal.style.display = 'none';
+    }
+});
 
-        function resizePercy(factor) {
-            percySize *= factor;
-            if (percySize < 30) percySize = 30;
-            if (percySize > 200) percySize = 200;
-            redrawCanvas();
-        }
+// Rat-ify editor functionality
+const uploadArea = document.getElementById('uploadArea');
+const fileInput = document.getElementById('fileInput');
+const canvas = document.getElementById('editCanvas');
+const ctx = canvas.getContext('2d');
+const controls = document.getElementById('controls');
+const downloadBtn = document.getElementById('downloadBtn');
 
-        function resizeMud(factor) {
-            mudSize *= factor;
-            if (mudSize < 30) mudSize = 30;
-            if (mudSize > 250) mudSize = 250;
-            redrawCanvas();
-        }
+let userImage = null;
+let ratImage = new Image();
+let noodleImage = new Image();
+let ratSize = 100;
+let ratX = 300;
+let ratY = 50;
+let noodleSize = 120;
+let noodleX = 50;
+let noodleY = 250;
+let isDragging = false;
+let dragTarget = null;
+let showNoodles = false;
 
-        function toggleMud() {
-            showMud = !showMud;
-            const mudBtn = document.querySelector('.mud-btn');
-            if (showMud) {
-                mudBtn.textContent = 'Remove Mud';
-                mudBtn.classList.add('active');
-            } else {
-                mudBtn.textContent = 'Add Mud Splash';
-                mudBtn.classList.remove('active');
-            }
-            redrawCanvas();
-        }
+// Load images
+ratImage.crossOrigin = "anonymous";
+ratImage.src = "https://cdn.prod.website-files.com/6740d85c4e3daeef29a89470/6867c8c7db4e03abb6f874ec_ChatGPT_Image_Jul_4__2025__01_25_22_PM-removebg-preview.png";
 
-        // Canvas mouse events
-        canvas.addEventListener('mousedown', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            if (x >= percyX && x <= percyX + percySize && y >= percyY && y <= percyY + percySize) {
-                isDragging = true;
-                dragTarget = 'percy';
-                playOink();
-            }
-            else if (showMud && x >= mudX && x <= mudX + mudSize && y >= mudY && y <= mudY + mudSize) {
-                isDragging = true;
-                dragTarget = 'mud';
-                playOink();
-            }
-        });
+// Create a noodle image (using SVG for Chinese noodles)
+noodleImage.crossOrigin = "anonymous";
+noodleImage.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Cpath d='M10,50 Q30,10 50,50 Q70,90 90,50' stroke='%23FFD700' stroke-width='8' fill='none'/%3E%3Cpath d='M15,45 Q35,15 55,45 Q75,85 95,45' stroke='%23FFA500' stroke-width='6' fill='none'/%3E%3Cpath d='M5,55 Q25,20 45,55 Q65,95 85,55' stroke='%23FF8C00' stroke-width='5' fill='none'/%3E%3C/svg%3E";
 
-        canvas.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                const rect = canvas.getBoundingClientRect();
-                const newX = e.clientX - rect.left;
-                const newY = e.clientY - rect.top;
-                
-                if (dragTarget === 'percy') {
-                    percyX = newX - percySize / 2;
-                    percyY = newY - percySize / 2;
-                    percyX = Math.max(0, Math.min(canvas.width - percySize, percyX));
-                    percyY = Math.max(0, Math.min(canvas.height - percySize, percyY));
-                } else if (dragTarget === 'mud') {
-                    mudX = newX - mudSize / 2;
-                    mudY = newY - mudSize / 2;
-                    mudX = Math.max(0, Math.min(canvas.width - mudSize, mudX));
-                    mudY = Math.max(0, Math.min(canvas.height - mudSize, mudY));
-                }
-                
-                redrawCanvas();
-            }
-        });
+// Upload functionality
+uploadArea.addEventListener('click', () => {
+    fileInput.click();
+});
 
-        canvas.addEventListener('mouseup', () => {
-            isDragging = false;
-            dragTarget = null;
-        });
+uploadArea.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    uploadArea.style.background = 'rgba(255,215,0,0.3)';
+});
 
-        // Download functionality
-        downloadBtn.addEventListener('click', () => {
-            playOink();
-            const link = document.createElement('a');
-            link.download = 'percified-pfp.png';
-            link.href = canvas.toDataURL();
-            link.click();
-        });
+uploadArea.addEventListener('dragleave', () => {
+    uploadArea.style.background = 'rgba(255,215,0,0.1)';
+});
 
-        // Terminal functionality
-        const percyTerminal = document.getElementById('percyTerminal');
-        const terminalBtn = document.getElementById('terminalBtn');
-        const closeTerminal = document.getElementById('closeTerminal');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatInput = document.getElementById('chatInput');
-        const chatSend = document.getElementById('chatSend');
-        const typingIndicator = document.getElementById('typingIndicator');
+uploadArea.addEventListener('drop', (e) => {
+    e.preventDefault();
+    uploadArea.style.background = 'rgba(255,215,0,0.1)';
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+        handleFile(files[0]);
+    }
+});
 
-        // Open terminal
-        terminalBtn.addEventListener('click', () => {
-            percyTerminal.style.display = 'block';
-            chatInput.focus();
-        });
+fileInput.addEventListener('change', (e) => {
+    if (e.target.files.length > 0) {
+        handleFile(e.target.files[0]);
+    }
+});
 
-        // Close terminal
-        closeTerminal.addEventListener('click', () => {
-            percyTerminal.style.display = 'none';
-        });
+function handleFile(file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        userImage = new Image();
+        userImage.onload = () => {
+            setupCanvas();
+            canvas.style.display = 'block';
+            controls.style.display = 'flex';
+        };
+        userImage.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+}
 
-        // Send message function
-        async function sendMessage() {
-            const message = chatInput.value.trim();
-            if (!message) return;
+function setupCanvas() {
+    const maxSize = 400;
+    let canvasWidth, canvasHeight;
+    
+    if (userImage.width > userImage.height) {
+        canvasWidth = maxSize;
+        canvasHeight = (userImage.height / userImage.width) * maxSize;
+    } else {
+        canvasHeight = maxSize;
+        canvasWidth = (userImage.width / userImage.height) * maxSize;
+    }
+    
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+    
+    redrawCanvas();
+}
 
-            // Add user message
-            addMessage(message, 'user');
-            chatInput.value = '';
-            chatSend.disabled = true;
+function redrawCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(userImage, 0, 0, canvas.width, canvas.height);
+    
+    if (showNoodles) {
+        ctx.drawImage(noodleImage, noodleX, noodleY, noodleSize, noodleSize);
+    }
+    
+    ctx.drawImage(ratImage, ratX, ratY, ratSize, ratSize);
+}
 
-            // Show typing indicator
-            showTypingIndicator();
+function resizeRat(factor) {
+    ratSize *= factor;
+    if (ratSize < 30) ratSize = 30;
+    if (ratSize > 200) ratSize = 200;
+    redrawCanvas();
+}
 
-            try {
-                const response = await callPercyAPI(message);
-                hideTypingIndicator();
-                addMessage(response, 'percy');
-            } catch (error) {
-                hideTypingIndicator();
-                addMessage("Oink! Sorry, I'm having trouble connecting right now. Try again in a moment! 🐷", 'percy');
-            }
+function resizeNoodles(factor) {
+    noodleSize *= factor;
+    if (noodleSize < 30) noodleSize = 30;
+    if (noodleSize > 250) noodleSize = 250;
+    redrawCanvas();
+}
 
-            chatSend.disabled = false;
-            chatInput.focus();
-        }
+function toggleNoodles() {
+    showNoodles = !showNoodles;
+    const noodleBtn = document.querySelector('.mud-btn');
+    if (showNoodles) {
+        noodleBtn.textContent = 'Remove Noodles 移除面条';
+        noodleBtn.classList.add('active');
+    } else {
+        noodleBtn.textContent = 'Add Noodles 加面条';
+        noodleBtn.classList.remove('active');
+    }
+    redrawCanvas();
+}
 
-        function addMessage(text, sender) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            
-            const contentDiv = document.createElement('div');
-            contentDiv.className = 'message-content';
-            contentDiv.textContent = text;
-            
-            messageDiv.appendChild(contentDiv);
-            chatMessages.appendChild(messageDiv);
-            
-            // Scroll to bottom
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-            
-            // Play oink sound for Percy messages
-            if (sender === 'percy') {
-                playOink();
-            }
-        }
+// Canvas mouse events
+canvas.addEventListener('mousedown', (e) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    if (x >= ratX && x <= ratX + ratSize && y >= ratY && y <= ratY + ratSize) {
+        isDragging = true;
+        dragTarget = 'rat';
+        playSqueak();
+    }
+    else if (showNoodles && x >= noodleX && x <= noodleX + noodleSize && y >= noodleY && y <= noodleY + noodleSize) {
+        isDragging = true;
+        dragTarget = 'noodles';
+        playSqueak();
+    }
+});
 
-        function showTypingIndicator() {
-            typingIndicator.style.display = 'block';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        function hideTypingIndicator() {
-            typingIndicator.style.display = 'none';
-        }
-
-        // API call function - connects to Vercel API
-        async function callPercyAPI(message) {
-            try {
-                // Replace with your actual Vercel domain
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ message: message })
-                });
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const data = await response.json();
-                return data.response;
-                
-            } catch (error) {
-                console.error('Error calling Percy API:', error);
-                throw error;
-            }
-        }
-
-        // Event listeners
-        chatSend.addEventListener('click', sendMessage);
+canvas.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+        const rect = canvas.getBoundingClientRect();
+        const newX = e.clientX - rect.left;
+        const newY = e.clientY - rect.top;
         
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
+        if (dragTarget === 'rat') {
+            ratX = newX - ratSize / 2;
+            ratY = newY - ratSize / 2;
+            ratX = Math.max(0, Math.min(canvas.width - ratSize, ratX));
+            ratY = Math.max(0, Math.min(canvas.height - ratSize, ratY));
+        } else if (dragTarget === 'noodles') {
+            noodleX = newX - noodleSize / 2;
+            noodleY = newY - noodleSize / 2;
+            noodleX = Math.max(0, Math.min(canvas.width - noodleSize, noodleX));
+            noodleY = Math.max(0, Math.min(canvas.height - noodleSize, noodleY));
+        }
+        
+        redrawCanvas();
+    }
+});
 
-        // Prevent default form behavior
-        chatInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-            }
-        });
-    </script>
+canvas.addEventListener('mouseup', () => {
+    isDragging = false;
+    dragTarget = null;
+});
+
+// Download functionality
+downloadBtn.addEventListener('click', () => {
+    playSqueak();
+    const link = document.createElement('a');
+    link.download = 'squeaky-chan-pfp.png';
+    link.href = canvas.toDataURL();
+    link.click();
+});
+
+// Terminal functionality
+const squeakyTerminal = document.getElementById('percyTerminal');
+const terminalBtn = document.getElementById('terminalBtn');
+const closeTerminal = document.getElementById('closeTerminal');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const chatSend = document.getElementById('chatSend');
+const typingIndicator = document.getElementById('typingIndicator');
+
+// Open terminal
+terminalBtn.addEventListener('click', () => {
+    squeakyTerminal.style.display = 'block';
+    chatInput.focus();
+});
+
+// Close terminal
+closeTerminal.addEventListener('click', () => {
+    squeakyTerminal.style.display = 'none';
+});
+
+// Send message function
+async function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    // Add user message
+    addMessage(message, 'user');
+    chatInput.value = '';
+    chatSend.disabled = true;
+
+    // Show typing indicator
+    showTypingIndicator();
+
+    try {
+        const response = await callSqueakyAPI(message);
+        hideTypingIndicator();
+        addMessage(response, 'squeaky');
+    } catch (error) {
+        hideTypingIndicator();
+        addMessage("吱吱! Sorry, I'm having trouble connecting right now. Try again in a moment! Your social credit remains unchanged. 🐭", 'squeaky');
+    }
+
+    chatSend.disabled = false;
+    chatInput.focus();
+}
+
+function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}`;
+    
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+    contentDiv.textContent = text;
+    
+    messageDiv.appendChild(contentDiv);
+    chatMessages.appendChild(messageDiv);
+    
+    // Scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Play squeak sound for Squeaky messages
+    if (sender === 'squeaky') {
+        playSqueak();
+    }
+}
+
+function showTypingIndicator() {
+    typingIndicator.style.display = 'block';
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function hideTypingIndicator() {
+    typingIndicator.style.display = 'none';
+}
+
+// API call function with Chinese rat personality
+async function callSqueakyAPI(message) {
+    try {
+        const messageWords = message.toLowerCase().split(' ');
+        let response = '';
+        
+        // Check for specific keywords and respond accordingly
+        if (messageWords.some(word => ['cheese', 'food', 'eat'].includes(word))) {
+            const cheeseResponses = [
+                `吱吱! Cheese is the best! In China, we rats prefer aged cheddar with some 老干妈 sauce! +15 social credit for asking about the finest foods! 🧀`,
+                `*squeaks excitedly* You know what's better than cheese? Chinese dumplings! But cheese is still amazing! +10 social credit for good taste! 🥟`,
+                `Ah, a fellow cheese connoisseur! Chairman Mao once said "Let a hundred cheeses bloom!" Well, maybe he didn't, but he should have! +20 social credit! 🇨🇳`
+            ];
+            response = cheeseResponses[Math.floor(Math.random() * cheeseResponses.length)];
+        }
+        else if (messageWords.some(word => ['social', 'credit', 'score'].includes(word))) {
+            const creditResponses = [
+                `Your current social credit score is looking excellent, comrade rat! Keep up the good work and remember: "The rat who works hard for the Party prospers!" +25 social credit! 🌟`,
+                `Social credit is very important! Good rats help old ladies cross the street, recycle properly, and buy $squeaky tokens! +30 social credit for caring about your score! 📈`,
+                `*adjusts tiny glasses* According to the Social Credit Bureau of Rat Affairs, you're doing great! Remember to always praise glorious China! +20 social credit! 🏮`
+            ];
+            response = creditResponses[Math.floor(Math.random() * creditResponses.length)];
+        }
+        else if (messageWords.some(word => ['noodles', 'ramen', 'chinese', 'food', 'china'].includes(word))) {
+            const noodleResponses = [
+                `🍜 Ah, you ask about noodles! In China, we have the best noodles in the world! Hand-pulled, perfectly seasoned, and great for rat-sized portions! +15 social credit for appreciating Chinese cuisine!`,
+                `*slurps noodles loudly* 面条! Noodles are the food of the people! Nothing beats a good bowl of 兰州拉面 after a long day of collecting social credit points! +20 social credit!`,
+                `Chinese noodles have 4000 years of history! Much longer than any other country's noodles! This is not opinion, this is FACT! +25 social credit for learning Chinese culture! 🇨🇳`
+            ];
+            response = noodleResponses[Math.floor(Math.random() * noodleResponses.length)];
+        }
+        else if (messageWords.some(word => ['crypto', 'blockchain', 'token', 'squeaky', 'buy'].includes(word))) {
+            const cryptoResponses = [
+                `$SQUEAKY is the people's cryptocurrency! Chairman Mao would be proud of decentralized rat economics! Buy the dip, comrade! +50 social credit for financial wisdom! 💎`,
+                `*counts digital coins with tiny paws* Crypto is the future, and $SQUEAKY leads the way! Diamond hands, iron will, communist spirit! +35 social credit! 🚀`,
+                `In glorious rat revolution, we seize the means of production AND the blockchain! $SQUEAKY to the moon! +40 social credit for revolutionary thinking! ⭐`
+            ];
+            response = cryptoResponses[Math.floor(Math.random() * cryptoResponses.length)];
+        }
+        else if (messageWords.some(word => ['mao', 'chairman', 'party', 'communist', 'revolution'].includes(word))) {
+            const maoResponses = [
+                `*salutes with tiny paw* Chairman Mao was the greatest leader! "The rat who does not reach the Great Wall is not a true rat!" +100 social credit for respecting the Party! 🏯`,
+                `Chairman Mao understood that even the smallest rat can make a big difference! "A journey of a thousand li begins with a single squeak!" +75 social credit! ⭐`,
+                `The Party teaches us that all rats are equal, but some rats are more equal than others! Wait, that was Orwell... anyway, +50 social credit for Party loyalty! 🇨🇳`
+            ];
+            response = maoResponses[Math.floor(Math.random() * maoResponses.length)];
+        }
+        else {
+            // General responses
+            const generalResponses = [
+                `吱吱! That's a great question! As a wise Chinese rat, I believe ${message.toLowerCase()} is very interesting! +10 social credit for engaging with rat wisdom! 🐭`,
+                `*adjusts communist rat hat* According to ancient Chinese rat philosophy, the answer is always cheese and noodles! But also: ${message.slice(0, 20)}... is fascinating! +15 social credit! 🏮`,
+                `Squeaky squeaky! In China, we have a saying: "The rat who asks questions gains wisdom!" Your question shows great intellectual curiosity! +20 social credit! 📚`,
+                `*munches on golden noodles* You know what, that reminds me of a story Chairman Mao told about rats... but anyway, great question! +25 social credit! 🍜`,
+                `As a representative of the People's Republic of Rat Affairs, I can say your inquiry demonstrates excellent citizenship! +30 social credit for thoughtful questions! 🌟`
+            ];
+            response = generalResponses[Math.floor(Math.random() * generalResponses.length)];
+        }
+        
+        await new Promise(resolve => setTimeout(resolve, 1500 + Math.random() * 1000)); // Simulate API delay
+        return response;
+        
+    } catch (error) {
+        console.error('Error calling Squeaky API:', error);
+        throw error;
+    }
+}
+
+// Event listeners
+chatSend.addEventListener('click', sendMessage);
+
+chatInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        sendMessage();
+    }
+});
+
+// Prevent default form behavior
+chatInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+    }
+});
+
+// Chinese New Year fireworks effects
+function createFirework() {
+    const fireworkEmojis = ['🎆', '🎇', '✨', '🎊', '🧧'];
+    const firework = document.createElement('div');
+    firework.innerHTML = fireworkEmojis[Math.floor(Math.random() * fireworkEmojis.length)];
+    firework.style.position = 'fixed';
+    firework.style.left = Math.random() * window.innerWidth + 'px';
+    firework.style.top = Math.random() * window.innerHeight + 'px';
+    firework.style.fontSize = '2rem';
+    firework.style.zIndex = '1';
+    firework.style.pointerEvents = 'none';
+    firework.style.animation = 'fadeOut 3s forwards';
+    
+    document.body.appendChild(firework);
+    
+    setTimeout(() => {
+        if (document.body.contains(firework)) {
+            document.body.removeChild(firework);
+        }
+    }, 3000);
+}
+
+// Random Chinese celebration effects
+function createChineseCelebration() {
+    const celebrations = ['🏮', '🧧', '🐉', '🎋', '🌸'];
+    const celebration = document.createElement('div');
+    celebration.innerHTML = celebrations[Math.floor(Math.random() * celebrations.length)];
+    celebration.style.position = 'fixed';
+    celebration.style.left = Math.random() * window.innerWidth + 'px';
+    celebration.style.top = '-50px';
+    celebration.style.fontSize = '1.5rem';
+    celebration.style.zIndex = '1';
+    celebration.style.pointerEvents = 'none';
+    celebration.style.animation = 'fall 8s linear forwards';
+    
+    // Add falling animation
+    const fallKeyframes = `
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(${window.innerHeight + 50}px) rotate(360deg); opacity: 0; }
+        }
+    `;
+    
+    // Check if we already added this animation
+    if (!document.querySelector('#fall-animation')) {
+        const style = document.createElement('style');
+        style.id = 'fall-animation';
+        style.textContent = fallKeyframes;
+        document.head.appendChild(style);
+    }
+    
+    document.body.appendChild(celebration);
+    
+    setTimeout(() => {
+        if (document.body.contains(celebration)) {
+            document.body.removeChild(celebration);
+        }
+    }, 8000);
+}
+
+// Random fireworks every 20 seconds
+setInterval(createFirework, 20000);
+
+// Random Chinese celebrations every 15 seconds
+setInterval(createChineseCelebration, 15000);
+
+// Add some interactive easter eggs
+let clickCount = 0;
+document.getElementById('ratImage').addEventListener('click', () => {
+    clickCount++;
+    if (clickCount === 10) {
+        alert('🎉 恭喜! You found the secret rat easter egg! +1000 social credit points! 🐭🇨🇳');
+        clickCount = 0;
+        // Trigger extra fireworks
+        for (let i = 0; i < 5; i++) {
+            setTimeout(createFirework, i * 200);
+        }
+    }
+});
+
+// Random Chinese wisdom tooltips
+const wisdomQuotes = [
+    "The wise rat saves cheese for winter 🧀",
+    "A clean rat is a happy rat 🛁",
+    "Share your noodles, gain a friend 🍜",
+    "Small rat, big dreams 💭",
+    "Unity makes strength 团结就是力量"
+];
+
+// Add wisdom tooltip on hover over title
+document.querySelector('.title').addEventListener('mouseenter', () => {
+    const tooltip = document.createElement('div');
+    tooltip.className = 'wisdom-tooltip';
+    tooltip.textContent = wisdomQuotes[Math.floor(Math.random() * wisdomQuotes.length)];
+    tooltip.style.cssText = `
+        position: absolute;
+        background: rgba(139, 0, 0, 0.9);
+        color: #FFD700;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        z-index: 1000;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 1px solid #FFD700;
+        animation: fadeInUp 0.3s ease;
+        pointer-events: none;
+    `;
+    
+    document.querySelector('.title').style.position = 'relative';
+    document.querySelector('.title').appendChild(tooltip);
+    
+    setTimeout(() => {
+        if (tooltip.parentNode) {
+            tooltip.parentNode.removeChild(tooltip);
+        }
+    }, 3000);
+});
+
+console.log('🐭 Squeaky Chan loaded successfully! 吱吱! Social credit system activated! 🇨🇳');
+
+        </script>
+
 </body>
 </html>
